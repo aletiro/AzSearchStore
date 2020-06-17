@@ -1,10 +1,10 @@
 {
-  "name": "azsearchstore",
-  "version": "0.0.27",
+  "name": "dw_azsearchstore",
+  "version": "1.0.0",
   "description": "redux based UI state management for applications consuming Azure Search",
   "repository": {
     "type": "git",
-    "url": "https://github.com/EvanBoyle/AzSearchStore.git"
+    "url": "https://github.com/aletiro/AzSearchStore.git"
   },
   "module": "dist/AzSearchStore.js",
   "main": "dist/AzSearchStore.bundle.js",
