@@ -242,9 +242,7 @@ function addRangeFacetAction(state: Store.Facets, action: AddRangeFacetAction): 
 }
 
 function addCheckboxFacet(state: Store.Facets, action: AddCheckboxFacetAction): Store.Facets {
-    const { dataType, key } = action;
-    const sort = "count",
-        count = 5;
+    const { dataType, key, count, sort, values } = action;
 
     switch (dataType) {
         case "number":
@@ -258,7 +256,7 @@ function addCheckboxFacet(state: Store.Facets, action: AddCheckboxFacetAction): 
         type: "CheckboxFacet",
         key,
         dataType,
-        values: {},
+        values,
         count,
         sort,
         filterClause: "",

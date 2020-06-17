@@ -37,7 +37,8 @@ export type AddCheckboxFacetAction = {
     key: string,
     dataType: Store.CheckboxDataType,
     count: number,
-    sort: Store.FacetSortingMode
+    sort: Store.FacetSortingMode,
+    values: {}
 };
 export type ToggleCheckboxFacetAction = {
     type: "TOGGLE_CHECKBOX_SELECTION",
@@ -66,12 +67,13 @@ export const updateFacetsValues = (facets: { [key: string]: Store.FacetResult[] 
     facets
 });
 
-export const addCheckboxFacet = (key: string, dataType: Store.CheckboxDataType, count: number = 5, sort: Store.FacetSortingMode = "count"): FacetsAction => ({
+export const addCheckboxFacet = (key: string, dataType: Store.CheckboxDataType, count: number = 5, sort: Store.FacetSortingMode = "count", values: {}): FacetsAction => ({
     type: "ADD_CHECKBOX_FACET",
     key,
     dataType,
     count,
-    sort
+    sort,
+    values
 });
 
 export const addRangeFacet = (key: string, dataType: Store.RangeDataType, min: number | Date, max: number | Date): FacetsAction => ({
