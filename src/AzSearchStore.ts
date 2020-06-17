@@ -51,10 +51,10 @@ export class AzSearchStore {
         this.store.dispatch(searchParameterActions.updateSearchParameters(searchParametersUpdate));
     }
     public incrementSkip() {
-        this.store.dispatch(searchParameterActions.incrementSkip);
+        this.store.dispatch(searchParameterActions.incrementSkip());
     }
     public decrementSkip() {
-        this.store.dispatch(searchParameterActions.decrementSkip);
+        this.store.dispatch(searchParameterActions.decrementSkip());
     }
 
     public setPage(page: number) {

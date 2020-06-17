@@ -1,6 +1,7 @@
 {
     "version": "2.1.5",
     "compilerOptions": {
+        "skipLibCheck": true,
         "declaration": true,
         "outDir": "./dist/",
         "sourceMap": true,

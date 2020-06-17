@@ -1,6 +1,6 @@
 {
   "name": "dw_azsearchstore",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "redux based UI state management for applications consuming Azure Search",
   "repository": {
     "type": "git",
@@ -41,15 +41,15 @@
     "source-map-loader": "^0.1.6",
     "ts-jest": "^18.0.2",
     "ts-lint": "4.5.1",
-    "ts-loader": "^1.3.3",
-    "typescript": "^2.2.1",
-    "webpack": "^2.2.1"
+    "ts-loader": "1.3.3",
+    "typescript": "2.2.1",
+    "webpack": "2.2.1"
   },
   "dependencies": {
     "es6-promise": "^4.0.5",
     "isomorphic-fetch": "^2.2.1",
     "object-assign": "^4.1.1",
-    "redux-thunk": "^2.2.0",
+    "redux-thunk": "2.2.0",
     "urijs": "^1.18.5"
   },
   "peerDependencies": {
