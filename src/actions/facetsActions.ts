@@ -12,6 +12,7 @@ export type FacetsAction =
     SetGlobalFilterAction;
 export type ClearFacetsSelectionsAction = {
     type: "CLEAR_FACETS_SELECTIONS",
+    facets: { [key: string]: Store.Facet }
 };
 export type UpdateFacetValuesAction = {
     type: "UPDATE_FACETS_VALUES",
@@ -102,6 +103,6 @@ export const setFacetRange = (key: string, lowerBound: number | Date, upperBound
     upperBound
 });
 
-export const clearFacetsSelections = (): FacetsAction => ({ type: "CLEAR_FACETS_SELECTIONS" });
+export const clearFacetsSelections = (facets: { [key: string]: Store.Facet } = {}): FacetsAction => ({type: "CLEAR_FACETS_SELECTIONS", facets});
 
 export const setGlobalFilter = (key: string, filter: string): FacetsAction => ({ type: "SET_GLOBAL_FILTER", key, filter });

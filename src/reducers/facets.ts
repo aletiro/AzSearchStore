@@ -41,8 +41,12 @@ function setGlobalFilter(state: Store.Facets, action: SetGlobalFilterAction): St
 
 function clearFacetsSelections(state: Store.Facets, action: ClearFacetsSelectionsAction): Store.Facets {
     let facets: { [key: string]: Store.Facet } = {};
-    Object.keys(state.facets).forEach((key) => {
-        const facet = state.facets[key];
+    let updatedFacets: { [key: string]: Store.Facet } = {};
+    action.facets != {} ?
+        facets = action.facets :
+        facets = state.facets;
+    Object.keys(facets).forEach((key) => {
+        const facet = facets[key];
         switch (facet.type) {
             case "CheckboxFacet":
                 const values: { [key: string]: Store.CheckboxFacetItem } = {};
@@ -67,8 +71,9 @@ function clearFacetsSelections(state: Store.Facets, action: ClearFacetsSelection
                 break;
             default: break;
         }
+        updatedFacets = updateObjectAtKey(state.facets, facets[key], key);
     });
-    return updateObject(state, { facets });
+    return updateObject(state, { updatedFacets });
 }
 
 function setFacetsValues(state: Store.Facets, action: SetFacetsValuesAction): Store.Facets {
