@@ -112,14 +112,11 @@ function setRangeFacetValues(facet: Store.RangeFacet, facetResults: Store.FacetR
 
 function setCheckboxFacetValues(facet: Store.CheckboxFacet, facetResults: Store.FacetResult[]): Store.CheckboxFacet {
     let values: { [key: string]: Store.CheckboxFacetItem } = {};
-    facetResults.forEach((facetResult) => {
-        const { value, count } = facetResult;
-        values[value] = {
-            value,
-            count,
-            selected: false
-        };
-    });
+    Object.keys(facet.values).forEach(key => {
+        const {value, count, selected} = facet.values[key];
+        const enabled = facetResults.filter((x: any) => x.value === facet.values[key].value) == undefined;
+        values[value] = { value, count, selected, enabled }
+    })
     return updateObject(facet, { values, filterClause: "" });
 }
 
@@ -162,6 +159,7 @@ function mergeCheckboxFacetValues(facet: Store.CheckboxFacet, facetResults: Stor
         if (updateIndex >= 0) {
             const item = facetResults[updateIndex];
             values[valueKey] = {
+                enabled: true,
                 count: item.count,
                 value: item.value,
                 selected: facet.values[item.value] ? facet.values[item.value].selected : false
@@ -170,20 +168,10 @@ function mergeCheckboxFacetValues(facet: Store.CheckboxFacet, facetResults: Stor
         else {
             const value = facet.values[valueKey];
             values[valueKey] = {
+                enabled: true,
                 count: 0,
                 selected: value.selected,
                 value: value.value
-            };
-        }
-    });
-
-    // fill in new values at the end
-    facetResults.forEach((item) => {
-        if (!values[item.value]) {
-            values[item.value] = {
-                count: item.count,
-                value: item.value,
-                selected: facet.values[item.value] ? facet.values[item.value].selected : false
             };
         }
     });

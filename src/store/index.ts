@@ -100,7 +100,8 @@ export namespace Store {
     export type CheckboxFacetItem = {
         value: string | number,
         count: number
-        selected: boolean
+        selected: boolean,
+        enabled: boolean
     };
 
     export type FacetSortingMode = "count" | "count-" | "value" | "value-";
