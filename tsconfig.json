@@ -6,9 +6,11 @@
         "outDir": "./dist/",
         "sourceMap": true,
         "noImplicitAny": true,
-        "module": "commonjs",
+        "module": "CommonJS",
         "target": "es5",
         "jsx": "react",
+        // "downlevelIteration": true,
+        "lib": ["es2017", "DOM"],
         "typeRoots": [
             "./node_modules/@types"
         ]

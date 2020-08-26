@@ -167,8 +167,9 @@ function mergeCheckboxFacetValues(facet: Store.CheckboxFacet, facetResults: Stor
         }
         else {
             const value = facet.values[valueKey];
+            const enabled = facetResults.filter(function (x) { return x.value === value.value; }).length > 0;
             values[valueKey] = {
-                enabled: true,
+                enabled: enabled,
                 count: 0,
                 selected: value.selected,
                 value: value.value

@@ -1,6 +1,6 @@
 {
   "name": "dw_azsearchstore",
-  "version": "1.0.14",
+  "version": "1.0.16",
   "description": "redux based UI state management for applications consuming Azure Search",
   "repository": {
     "type": "git",
